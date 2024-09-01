@@ -6,7 +6,6 @@ Shell script là một tập tin chứa các lệnh và câu lệnh được vi�
  - Quản lí hệ thống
  - Dễ học, dễ sử dụng
 
-**Cấu trúc cơ bản**
 # Shebang
 Một shell script thường bắt đầu với dòng shebang để chỉ định shell nào sẽ được sử dụng để chạy script. Ví dụ:
 *Bash shell Linux*
