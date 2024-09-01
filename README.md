@@ -165,6 +165,14 @@ echo "Giá trị của biến rỗng: '$empty_var'"
 ```
 
 
+# Comment
+Trong shell script, comment (nhận xét) là các dòng không được thực thi và được sử dụng để giải thích hoặc chú thích mã nguồn cho người đọc hoặc lập trình viên khác.
+Trong các script shell, bạn có thể tạo comment bằng cách sử dụng dấu #
+*__Ví dụ:__*
+```Bash
+# Đây là một comment
+echo "Hello world!" # In ra màn hình chữ Hello World!
+```
 
 
 
