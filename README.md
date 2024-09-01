@@ -267,6 +267,182 @@ Tất cả tham số: Hải HaiTool HaiYTB
 ```
 
 
+# Toán tử
+**Toán tử số học:**
+ - **+** : Cộng
+ - **-** : Trừ
+ - __*__ : Nhân
+ - **/** : Chia
+ - **%** : Chia lấy dư
+
+**Toán tử so sánh (sử dụng trong [ ] hoặc [[ ]]):**
+ *__So sánh số nguyên:__*
+  - **-eq** : Bằng
+  - **-ne** : Khác
+  - **-lt** : Nhỏ hơn
+  - **-le** : Nhỏ hơn hoặc bằng
+  - **-gt** : Lớn hơn
+  - **-ge** : Lớn hơn hoặc bằng
+ *__So sánh chuỗi:__*
+  - **=** : Bằng
+  - **!=** : Khác
+  - **<** : Nhỏ hơn (trong [[ ]])
+  - **>** : Lớn hơn (trong [[ ]])
+
+**Toán tử logic (sử dụng trong [ ] hoặc [[ ]]):**
+ - **-a** : AND - VÀ (trong [ ])
+ - **-o** : OR - HOẶC (trong [ ])
+ - **&&** : AND - VÀ (trong [[ ]] và giữa các câu lệnh)
+ - **||** : OR - HOẶC (trong [[ ]] và giữa các câu lệnh)
+ - **!** : NOT - KHÔNG(KHÔNG PHẢI)
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+a=10
+b=5
+c="Hello"
+d="Hello"
+f="Hi"
+sum=$((a + b))
+echo "Tổng: $sum"  # Kết quả: Tổng: 15
+
+difference=$((a - b))
+echo "Hiệu: $difference"  # Kết quả: Hiệu: 5
+
+product=$((a * b))
+echo "Tích: $product"  # Kết quả: Tích: 50
+
+quotient=$((a / b))
+echo "Thương: $quotient"  # Kết quả: Thương: 2
+
+remainder=$((a % b))
+echo "Dư: $remainder"  # Kết quả: Dư: 0
+
+if [ $a -eq $b ]; then
+    echo "a bằng b"
+else
+    echo "a không bằng b"  # Kết quả: a không bằng b
+fi
+
+if [ $a -ne $b ]; then
+    echo "a khác b"  # Kết quả: a khác b
+fi
+
+if [ $a -ne $b ]; then
+    echo "a khác b"  # Kết quả: a khác b
+fi
+
+if [ $a -lt $b ]; then
+    echo "a nhỏ hơn b"
+else
+    echo "a không nhỏ hơn b"  # Kết quả: a không nhỏ hơn b
+fi
+
+if [ $a -le $b ]; then
+    echo "a nhỏ hơn hoặc bằng b"
+else
+    echo "a lớn hơn b"  # Kết quả: a lớn hơn b
+fi
+
+if [ $a -gt $b ]; then
+    echo "a lớn hơn b"  # Kết quả: a lớn hơn b
+fi
+
+if [ $a -ge $b ]; then
+    echo "a lớn hơn hoặc bằng b"  # Kết quả: a lớn hơn hoặc bằng b
+fi
+
+if [ "$c" = "$d" ]; then
+    echo "c bằng d"  # Kết quả: c bằng d
+fi
+
+if [ "$c" != "$f" ]; then
+    echo "c khác f"  # Kết quả: c khác f
+fi
+
+if [[ "$c" < "$f" ]]; then
+    echo "c nhỏ hơn f"
+else
+    echo "c không nhỏ hơn f"  # Kết quả: c không nhỏ hơn f
+fi
+
+if [[ "$f" > "$c" ]]; then
+    echo "f lớn hơn c"  # Kết quả: f lớn hơn c
+fi
+
+if [ $a -gt 0 -a $b -lt 10 ]; then
+    echo "a lớn hơn 0 và b nhỏ hơn 10"  # Kết quả: a lớn hơn 0 và b nhỏ hơn 10
+fi
+
+if [ $a -lt 0 -o $b -lt 10 ]; then
+    echo "a nhỏ hơn 0 hoặc b nhỏ hơn 10"  # Kết quả: a nhỏ hơn 0 hoặc b nhỏ hơn 10
+fi
+
+if [[ $a -gt 0 && $b -lt 10 ]]; then
+    echo "a lớn hơn 0 và b nhỏ hơn 10"  # Kết quả: a lớn hơn 0 và b nhỏ hơn 10
+fi
+
+if [[ $a -lt 0 || $b -lt 10 ]]; then
+    echo "a nhỏ hơn 0 hoặc b nhỏ hơn 10"  # Kết quả: a nhỏ hơn 0 hoặc b nhỏ hơn 10
+fi
+
+if [ ! $a -lt 0 ]; then
+    echo "a không nhỏ hơn 0"  # Kết quả: a không nhỏ hơn 0
+fi
+```
+
+**LƯU Ý:**
+Trong shell script, [] và () có những công dụng khác nhau, chủ yếu trong các tình huống so sánh và thực thi lệnh.
+
+[] là một cách để kiểm tra các điều kiện trong shell script.
+() được sử dụng để nhóm các lệnh lại với nhau và thực thi chúng trong một subshell(môi trường con)
+
+
+# Cấu trúc rẽ nhánh(if, else, elif) - Câu lệnh điều kiện loại 1
+Câu lệnh if là công cụ chính để kiểm tra điều kiện và thực hiện các lệnh dựa trên kết quả của điều kiện đó.
+
+*__Cấu trúc:__*
+```Bash
+if [ điều kiện ]; then
+    # Lệnh sẽ được thực thi nếu điều kiện là true
+elif [ điều kiện khác ]; then
+    # Lệnh sẽ được thực thi nếu điều kiện đầu tiên là false và điều kiện này là true
+else
+    # Lệnh sẽ được thực thi nếu tất cả các điều kiện trên đều false
+fi
+```
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+echo "Nhập một số:"
+read num
+
+if [ $num -gt 0 ]; then
+    echo "Số dương"
+elif [ $num -lt 0 ]; then
+    echo "Số âm"
+else
+    echo "Số không"
+fi
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
