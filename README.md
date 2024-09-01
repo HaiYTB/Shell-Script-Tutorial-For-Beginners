@@ -168,11 +168,78 @@ echo "Giá trị của biến rỗng: '$empty_var'"
 # Comment
 Trong shell script, comment (nhận xét) là các dòng không được thực thi và được sử dụng để giải thích hoặc chú thích mã nguồn cho người đọc hoặc lập trình viên khác.
 Trong các script shell, bạn có thể tạo comment bằng cách sử dụng dấu #
+
 *__Ví dụ:__*
 ```Bash
 # Đây là một comment
 echo "Hello world!" # In ra màn hình chữ Hello World!
 ```
+
+
+# Đọc dữ liệu đầu vào từ người dùng
+Đọc dữ liệu từ người dùng trong shell script có thể được thực hiện bằng cách sử dụng lệnh read. Lệnh read cho phép bạn nhận đầu vào từ người dùng và lưu trữ vào một biến để sử dụng sau này trong script.
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+# Yêu cầu người dùng nhập tên
+echo "Nhập tên của bạn:"
+read name
+
+# Hiển thị tên của người dùng
+echo "Chào, $name!"
+```
+Trong ví dụ trên:
+ - Lệnh echo hiển thị một thông báo yêu cầu người dùng nhập dữ liệu.
+ - Lệnh read nhận đầu vào từ người dùng và lưu trữ vào biến name.
+ - Cuối cùng, echo sử dụng biến name để hiển thị lời chào.
+
+Bạn cũng có thể đọc nhiều giá trị cùng lúc và đặt các giá trị đó vào các biến khác nhau.
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+# Yêu cầu người dùng nhập tên và tuổi
+echo "Nhập tên của bạn và tuổi của bạn:"
+read name age
+
+# Hiển thị thông tin của người dùng
+echo "Chào, $name! Bạn $age tuổi."
+```
+
+Cờ -p trong lệnh read cho phép bạn cung cấp một thông báo (prompt) trực tiếp ngay khi yêu cầu người dùng nhập dữ liệu, thay vì sử dụng lệnh echo riêng biệt.
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+# Sử dụng cờ -p để cung cấp thông báo nhập dữ liệu
+read -p "Nhập tên của bạn: " name
+
+# Hiển thị tên của người dùng
+echo "Chào, $name!"
+```
+
+Trong ví dụ trên:
+ - Cờ -p cho phép bạn cung cấp thông báo "Nhập tên của bạn: " trực tiếp trong lệnh read.
+ - Người dùng nhập dữ liệu sau thông báo đó, và giá trị đó được lưu trữ trong biến name.
+
+**Lưu ý:**
+Cờ -p trong lệnh read được hỗ trợ từ phiên bản bash 3.2 trở đi. Nếu bạn sử dụng bash phiên bản cũ hơn hoặc một shell khác như sh, cờ -p có thể không được hỗ trợ.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
