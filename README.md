@@ -230,10 +230,41 @@ Trong ví dụ trên:
 Cờ -p trong lệnh read được hỗ trợ từ phiên bản bash 3.2 trở đi. Nếu bạn sử dụng bash phiên bản cũ hơn hoặc một shell khác như sh, cờ -p có thể không được hỗ trợ.
 
 
+# Truyền tham số(pass agurments)
+Trong shell script, "pass arguments" (truyền tham số) là cách bạn cung cấp dữ liệu cho script khi chạy nó. Các tham số này có thể được sử dụng trong script để thực hiện các thao tác cụ thể.
 
+*__Trong script bạn có thể truy cập tham số bằng các biến đặt biệt:__*
+ - $1 đến $9 cho các tham số từ 1 đến 9.
+ - ${10} và các tham số tiếp theo được truy cập bằng cách sử dụng cú pháp ${n}, trong đó n là số thứ tự của tham số.
 
+*__Ví dụ:__*
+```Shell
+bash pass_args.sh Hải HaiTool HaiYTB
+```
+Với file pass_args.sh:
+```Bash
+#!/bin/bash
 
+# Truy cập tham số
+echo "Tham số đầu tiên: $1"
+echo "Tham số thứ hai: $2"
+echo "Tham số thứ ba: $3"
 
+# Số lượng tham số
+echo "Số lượng tham số: $#"
+
+# Tất cả các tham số
+echo "Tất cả tham số: $*"
+```
+
+*Output:*
+```
+Tham số đầu tiên: Hải
+Tham số thứ hai: HaiTool
+Tham số thứ ba: HaiYTB
+Số lượng tham số: 3
+Tất cả tham số: Hải HaiTool HaiYTB
+```
 
 
 
