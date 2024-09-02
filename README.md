@@ -430,6 +430,43 @@ fi
 ```
 
 
+# case - Câu lệnh điều kiện loại 2
+Câu lệnh case cho phép bạn thực hiện các lệnh dựa trên giá trị của biến.
+
+*__Cấu trúc:__*
+```Bash
+case $biến in
+    giá_trị_1)
+        # Các lệnh thực hiện khi biến có giá trị giá_trị_1
+        ;;
+    giá_trị_2)
+        # Các lệnh thực hiện khi biến có giá trị giá_trị_2
+        ;;
+    *)
+        # Các lệnh thực hiện khi biến không khớp với bất kỳ giá trị nào ở trên
+        ;;
+esac
+```
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+day="Monday"
+
+case $day in
+    Monday)
+        echo "Hôm nay là thứ hai"
+        ;;
+    Friday)
+        echo "Hôm nay là thứ sáu"
+        ;;
+    *)
+        echo "Ngày không xác định"
+        ;;
+esac
+```
+
 
 
 
