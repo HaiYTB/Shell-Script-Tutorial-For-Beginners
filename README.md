@@ -165,6 +165,47 @@ echo "Giá trị của biến rỗng: '$empty_var'"
 ```
 
 
+# Ép kiểu dữ liệu của biến
+Trong shell script, ép kiểu dữ liệu (type casting) không được thực hiện theo cách trực tiếp như trong các ngôn ngữ lập trình mạnh mẽ hơn. Tuy nhiên, bạn có thể làm việc với các biến bằng cách chuyển đổi giữa các kiểu dữ liệu thông qua các phép toán và các kỹ thuật khác.
+
+**Ép kiểu chuỗi(str) sang số(int):**
+```Bash
+#!/bin/bash
+
+num_str="42"
+
+# Thực hiện phép toán với chuỗi số; shell sẽ ép kiểu chuỗi thành số
+result=$((num_str + 8))
+
+echo "Kết quả: $result"
+```
+
+**Ép kiểu số(int) sang chuỗi(str):**
+```Bash
+#!/bin/bash
+
+num=123
+
+# Ép kiểu số thành chuỗi
+str="$num"
+
+echo "Chuỗi: $str"
+```
+
+**Chuyển đổi kiểu trong các phép toán:**
+```Bash
+#!/bin/bash
+
+num_str="15"
+num_int=5
+
+# Thực hiện phép toán, ép kiểu chuỗi thành số
+result=$((num_str + num_int))
+
+echo "Kết quả phép toán: $result"
+```
+
+
 # Comment
 Trong shell script, comment (nhận xét) là các dòng không được thực thi và được sử dụng để giải thích hoặc chú thích mã nguồn cho người đọc hoặc lập trình viên khác.
 Trong các script shell, bạn có thể tạo comment bằng cách sử dụng dấu #
