@@ -696,7 +696,7 @@ Hello "HaiYTB"
 **Tham số và biến trong hàm**
 Hàm có thể nhận tham số và sử dụng các **biến nội bộ**:
  - $1, $2, ..., $N là các tham số truyền vào hàm.
- - $@ hoặc $* đại diện cho tất cả các tham số.
+ - ```$@``` hoặc ```$*``` đại diện cho tất cả các tham số.
 
 *__Cách gọi hàm:__*
 ```Bash
