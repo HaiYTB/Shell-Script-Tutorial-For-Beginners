@@ -654,11 +654,109 @@ done
 ```
 
 
+# Hàm
+Trong shell script, hàm (function) là một cách để tổ chức mã nguồn và tái sử dụng các đoạn mã. Bạn có thể định nghĩa và gọi hàm để thực hiện các tác vụ cụ thể.
 
+*__Cấu trúc:__*
+*Cách 1: Truyền thống:*
+```Bash
+function_name() {
+    # Các lệnh thực hiện trong hàm
+}
+```
 
+*Cách 2: Sử dụng từ khoá function:*
+```Bash
+function function_name {
+    # Các lệnh thực hiện trong hàm
+}
+```
 
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
 
+Hello() {
+    echo "Hello, $1!"
+}
 
+Hello "Hải"
+```
+hoặc
+```Bash
+#!/bin/bash
 
+function Hello {
+    echo "Hello, $1!"
+}
 
+Hello "HaiYTB"
+```
 
+**Tham số và biến trong hàm**
+Hàm có thể nhận tham số và sử dụng các **biến nội bộ**:
+ - $1, $2, ..., $N là các tham số truyền vào hàm.
+ - $@ hoặc $* đại diện cho tất cả các tham số.
+
+*__Cách gọi hàm:__*
+```Bash
+tên_hàm [tham số 1] [tham số 2] [tham số...n]
+```
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+Sums() {
+    local sum=$(( $1 + $2 ))
+    echo "Sum: $sum"
+}
+
+Sums 5 10
+```
+
+**Trả giá trị từ hàm**
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+multiply_numbers() {
+    local product=$(( $1 * $2 ))
+    echo $product
+}
+
+result=$(multiply_numbers 4 5)
+echo "Product: $result"
+```
+
+**Biến cục bộ và toàn cục**
+- **Biến cục bộ**: Sử dụng từ khóa **local** để khai báo biến chỉ có hiệu lực trong hàm.
+
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+increment() {
+    local number=$1
+    number=$(( number + 1 ))
+    echo $number
+}
+
+value=10
+new_value=$(increment $value)
+echo "Original: $value, Incremented: $new_value"
+```
+
+**Hàm có giá trị trả về**
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
+
+calculate_square() {
+    local num=$1
+    echo $(( num * num ))
+}
+
+square=$(calculate_square 6)
+echo "Square: $square"
+```
