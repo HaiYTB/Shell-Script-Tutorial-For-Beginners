@@ -296,6 +296,16 @@ Tất cả tham số: Hải HaiTool HaiYTB
  - **||** : OR - HOẶC (trong [[ ]] và giữa các câu lệnh)
  - **!** : NOT - KHÔNG(KHÔNG PHẢI)
 
+**Toán tử kiểm tra file:**
+ - **-e file**: Kiểm tra xem file có tồn tại không.
+ - **-f file**: Kiểm tra xem file có phải là một file bình thường không.
+ - **-d file**: Kiểm tra xem file có phải là một thư mục không.
+ - **-r file**: Kiểm tra xem file có thể đọc được không.
+ - **-w file**: Kiểm tra xem file có thể ghi được không.
+ - **-x file**: Kiểm tra xem file có thể thực thi được không.
+ - **-s file**: Kiểm tra xem file có kích thước lớn hơn 0 byte không.
+ - **-L file**: Kiểm tra xem file có phải là liên kết mềm không.
+
 *__Ví dụ:__*
 ```Bash
 #!/bin/bash
@@ -389,6 +399,32 @@ fi
 
 if [ ! $a -lt 0 ]; then
     echo "a không nhỏ hơn 0"  # Kết quả: a không nhỏ hơn 0
+fi
+
+file="example.txt"
+
+if [ -e "$file" ]; then
+    echo "$file tồn tại."
+
+    if [ -f "$file" ]; then
+        echo "$file là một file bình thường."
+    elif [ -d "$file" ]; then
+        echo "$file là một thư mục."
+    fi
+
+    if [ -r "$file" ]; then
+        echo "$file có thể đọc được."
+    fi
+
+    if [ -w "$file" ]; then
+        echo "$file có thể ghi được."
+    fi
+
+    if [ -x "$file" ]; then
+        echo "$file có thể thực thi được."
+    fi
+else
+    echo "$file không tồn tại."
 fi
 ```
 
