@@ -545,23 +545,113 @@ esac
 ```
 
 
+# Vòng lặp
+**Vòng lặp while**
+Vòng lặp while trong shell script cho phép bạn lặp lại một khối lệnh trong khi một điều kiện nhất định là đúng.
 
+*__Cú pháp:__*
+```Bash
+while [ điều_kiện ]; do
+    # Các lệnh thực hiện trong vòng lặp
+done
+```
 
+*__Ví dụ__:*
+```Bash
+#!/bin/bash
 
+counter=1
 
+while [ $counter -le 5 ]; do
+    echo "Số: $counter"
+    counter=$((counter + 1))  # Tăng giá trị biến counter
+done
+```
 
+**Vòng lặp for**
+Vòng lặp for trong shell script cho phép bạn lặp qua một danh sách các giá trị hoặc qua một dải số, và thực hiện một khối lệnh cho mỗi giá trị trong danh sách hoặc dải số.
 
+*__Cấu trúc__:*
+*Vòng lặp for với các (biến) danh sách giá trị:*
+```Bash
+for item in giá_trị_1 giá_trị_2 giá_trị_3; do
+    # Các lệnh thực hiện cho mỗi giá trị
+done
+```
+hoặc
+```Bash
+# Khởi tạo mảng
+array=("value1" "value2" "value3")
 
+# Lặp qua các phần tử của mảng
+for item in "${array[@]}"; do
+    echo "Item: $item"
+done
+```
+Ví dụ:
+```Bash
+#!/bin/bash
 
+for fruit in apple banana cherry; do
+    echo "Fruit: $fruit"
+done
+```
 
+*Vòng lặp for qua dải số:*
+```Bash
+for number in {bắt_đầu..kết_thúc}; do
+    # Các lệnh thực hiện cho mỗi số
+done
+```
+Ví dụ
+```Bash
+#!/bin/bash
 
+for number in {1..5}; do
+    echo "Number: $number"
+done
+```
 
+*Vòng lặp for với cú pháp C-style:*
+```Bash
+for ((biến = giá_trị_bắt_đầu; điều_kiện; biến = biến + bước)); do
+    # Các lệnh thực hiện cho mỗi giá trị
+done
+```
+Ví dụ:
+```Bash
+#!/bin/bash
 
+for ((i = 1; i <= 5; i++)); do
+    echo "Number: $i"
+done
+```
 
+**Vòng lặp với break và continue**
+- **break**: Để thoát khỏi vòng lặp.
+- **continue**: Để bỏ qua phần còn lại của vòng lặp và tiếp tục với vòng lặp tiếp theo.
 
+*__Ví dụ:__*
+```Bash
+#!/bin/bash
 
+counter=1
 
+while [ $counter -le 10 ]; do
+    if [ $counter -eq 5 ]; then
+        echo "Đến số 5, thoát khỏi vòng lặp."
+        break
+    fi
 
+    if [ $counter -eq 3 ]; then
+        counter=$((counter + 1))
+        continue
+    fi
+
+    echo "Số: $counter"
+    counter=$((counter + 1))
+done
+```
 
 
 
